@@ -1,0 +1,58 @@
+-- A. DDL and DML commands in PL/SQL
+
+BEGIN 
+    EXECUTE IMMEDIATE 'DROP TABLE Airlines CASCADE CONSTRAINTS';
+    EXECUTE IMMEDIATE 'DROP TABLE Airplanes CASCACE CONSTRAINTS';
+    EXECUTE IMMEDIATE 'DROP TABLE Airport CASCADE CONSTRAINTS';
+    EXECUTE IMMEDIATE 'DROP TABLE Flights CASCADE CONSTRAINTS';
+    EXECUTE IMMEDIATE 'DROP TABLE Pilots CASCADE CONSTRAINTS';
+    EXECUTE IMMEDIATE 'DROP TABLE Flight_Attendant CASCADE CONSTRAINTS';
+    EXECUTE IMMEDIATE 'DROP TABLE Passengers CASCADE CONSTRAINTS';
+    EXECUTE IMMEDIATE 'DROP TABLE Contracts CASCADE CONSTRAINTS';
+END;
+/
+
+-- CREATE TABLES 
+
+BEGIN 
+    EXECUTE IMMEDIATE 'CREATE TABLE Airlines(
+        airline_id NUMBER(3) CONSTRAINT c_pk PRIMARY KEY,
+        airline_name VARCHAR2(100),
+        country VARCHAR2(20)
+    )';
+    
+    EXECUTE IMMEDIATE 'CREATE TABLE Airplanes(
+        airplane_id NUMBER(3) CONSTRAINT c_pk PRIMARY KEY,
+        airline_id NUMBER(2) CONSTRAINT c_fk REFERENCES Airlines(airline_id),
+        airplane_capacity NUMBER(3),
+        production_year NUMBER(4)
+    )';
+    EXECUTE IMMEDIATE 'CREATE TABLE Airport(
+        airport_id NUMBER(2) CONSTRAINT c_pk PRIMARY KEY,
+        airport_name VARCHAR2(100) UNIQUE,
+        airport_location VARCHAR2(100) UNIQUE,
+        contact_number VARCHAR2(15),
+        airline_id CONSTRAINT c_fk REFERENCES Airlines(airline_id)
+    )';
+    EXECUTE IMMEDIATE 'CREATE TABLE Flights(
+        flight_id NUMBER(2) CONSTRAINT c_pk PRIMARY KEY,
+        airline_id NUMBER(3) CONSTRAINT c_fk REFERENCES Airlines(airline_id),
+        flight_number VARCHAR2(10) NOT NULL,
+        departure_airport VARCHAR2(50) NOT NULL,
+        arrival_airport VARCHAR2(50) NOT NULL
+    )';
+    EXECUTE IMMEDIATE 'CREATE TABLE Pilots(
+        pilot_id NUMBER(2) CONSTRAINT c_pk PRIMARY KEY,
+        airline_id NUMBER(3) CONSTRAINT c_fk REFERENCES Airlines(airline_id),
+        flight_id NUMBER(2) CONSTRAINT c_fk REFERENCES Flights(flight_id)
+        pil_first_name VARCHAR2(50),
+        pil_last_name VARCHAR2(50),
+        gender VARCHAR2(10),
+        email_adress VARCHAR2(30),
+        hire_date DATE
+    )';
+END;
+/
+
+
+
