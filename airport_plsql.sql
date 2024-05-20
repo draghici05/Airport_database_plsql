@@ -91,9 +91,9 @@ END;
     EXECUTE IMMEDIATE 'ALTER TABLE AIRLINES ADD (CONTINENT VARCHAR2(20))';
     EXECUTE IMMEDIATE 'UPDATE AIRLINES SET CONTINENT = ''Europe'' WHERE AIRLINE_ID IN (2, 4, 6, 8, 10, 12, 14)';
 
-BEGIN 
 -- INSERT INTO
 
+BEGIN 
     EXECUTE IMMEDIATE 'INSERT INTO Airlines (airline_id, airline_name, country) VALUES (1, ''Delta Airlines'', ''USA'')';
     EXECUTE IMMEDIATE 'INSERT INTO Airlines (airline_id, airline_name, country) VALUES (2, ''British Airlines'', ''UK'')';
     EXECUTE IMMEDIATE 'INSERT INTO Airlines (airline_id, airline_name, country) VALUES (3, ''Singapore Airlines'', ''Singapore'')';
@@ -121,7 +121,7 @@ BEGIN
     EXECUTE IMMEDIATE 'INSERT INTO Airplanes (airplane_id, airline_id, airplane_capacity, production_year) VALUES (9, 9, 230, 2014)';
     EXECUTE IMMEDIATE 'INSERT INTO Airplanes (airplane_id, airline_id, airplane_capacity, production_year) VALUES (10, 10, 200, 2023)';
 
-    EXECUTE IMMEDIATE 'INSERT INTO Airport (airport_id, airport_location, airport_name, contact_number) VALUES (1, ''San Francisco'', ''San Francisco Internation Airport'', ''(555) 555-1234)'')';
+    EXECUTE IMMEDIATE 'INSERT INTO Airport (airport_id, airport_location, airport_name, contact_number) VALUES (1, ''San Francisco'', ''San Francisco Internation Airport'', ''(555) 555-1234'')';
     EXECUTE IMMEDIATE 'INSERT INTO Airport (airport_id, airport_location, airport_name, contact_number) VALUES (2, ''London'', ''London Stansted Airport'', ''44 20 7123 4567'')';
     EXECUTE IMMEDIATE 'INSERT INTO Airport (airport_id, airport_location, airport_name, contact_number) VALUES (3, ''Seletar'', ''Seletar Airport'', ''+65 9123 4567'')';
     EXECUTE IMMEDIATE 'INSERT INTO Airport (airport_id, airport_location, airport_name, contact_number) VALUES (4, ''Frankfurt'', ''Diamond Skyport'', ''+49 69 1234 567'')';
@@ -148,27 +148,27 @@ BEGIN
     EXECUTE IMMEDIATE 'INSERT INTO Flights (flight_id, airline_id, flight_number, departure_airport, arrival_airport) VALUES (9, 9, ''HH887'', ''TS'', ''LSA'')';
     EXECUTE IMMEDIATE 'INSERT INTO Flights (flight_id, airline_id, flight_number, departure_airport, arrival_airport) VALUES (10, 10, ''AR334'', ''GTS'', ''PRA'')';
 
-    EXECUTE IMMEDIATE 'INSERT INTO Pilots (pilot_id, airline_id, flight_id, pil_first_name, pil_last_name, gender, email_address, hire_date) VALUES (1, 1, 1, ''Harlan'', ''Peck'', ''Male'', ''harlanpeck@gmail.com'',''04/15/2016'')';
-    EXECUTE IMMEDIATE 'INSERT INTO Pilots (pilot_id, airline_id, flight_id, pil_first_name, pil_last_name, gender, email_address, hire_date) VALUES (2, 2, 2, ''Cecile'', ''Miranda'', ''Female'', ''cecilemiranda@gmail.com'', ''09/22/2020'' )';
-    EXECUTE IMMEDIATE 'INSERT INTO Pilots (pilot_id, airline_id, flight_id, pil_first_name, pil_last_name, gender, email_address, hire_date) VALUES (3, 3, 3, ''Jake'', ''Parker'', ''Male'', ''jakeparker@gmail.com'', ''03/31/2019'')';
-    EXECUTE IMMEDIATE 'INSERT INTO Pilots (pilot_id, airline_id, flight_id, pil_first_name, pil_last_name, gender, email_address, hire_date) VALUES (4, 4, 4, ''Wilbert'', ''Bowman'', ''Male'', ''wilbertbowman@gmail.com'', ''07/18/2010'')';
-    EXECUTE IMMEDIATE 'INSERT INTO Pilots (pilot_id, airline_id, flight_id, pil_first_name, pil_last_name, gender, email_address, hire_date) VALUES (5, 5, 5, ''Margie'', ''Baxter'', ''Female'', ''margiebaxter@yahoo.com'', ''08/09/2023'')';
-    EXECUTE IMMEDIATE 'INSERT INTO Pilots (pilot_id, airline_id, flight_id, pil_first_name, pil_last_name, gender, email_address, hire_date) VALUES (6, 6, 6, ''Bertie'', ''Shea'', ''Female'', ''bertieshea@yahoo.com'', ''01/23/2017'')';
-    EXECUTE IMMEDIATE 'INSERT INTO Pilots (pilot_id, airline_id, flight_id, pil_first_name, pil_last_name, gender, email_address, hire_date) VALUES (7, 7, 7, ''Rodrick'', ''Delago'', ''Male'', ''rodrickdelago@gmail.com'', ''05/26/2020'')';
-    EXECUTE IMMEDIATE 'INSERT INTO Pilots (pilot_id, airline_id, flight_id, pil_first_name, pil_last_name, gender, email_address, hire_date) VALUES (8, 8, 8, ''Garfield'', ''Costa'', ''Male'', ''garfieldcosta@gmail.com'', ''06/05/2014'')';
-    EXECUTE IMMEDIATE 'INSERT INTO Pilots (pilot_id, airline_id, flight_id, pil_first_name, pil_last_name, gender, email_address, hire_date) VALUES (9, 9, 9, ''Lisa'', ''Bartlett'', ''Female'', ''lisabartlett@yahoo.com'', ''11/14/2022'')';
-    EXECUTE IMMEDIATE 'INSERT INTO Pilots (pilot_id, airline_id, flight_id, pil_first_name, pil_last_name, gender, email_address, hire_date) VALUES (10, 10, 10, ''Margey'', ''Casey'', ''Female'', ''margeycasey@gmail.com'', ''01/06/2020'')';
+    EXECUTE IMMEDIATE 'INSERT INTO Pilots (pilot_id, airline_id, flight_id, pil_first_name, pil_last_name, gender, email_address, hire_date) VALUES (1, 1, 1, ''Harlan'', ''Peck'', ''Male'', ''harlanpeck@gmail.com'', TO_DATE(''15/04/2016'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Pilots (pilot_id, airline_id, flight_id, pil_first_name, pil_last_name, gender, email_address, hire_date) VALUES (2, 2, 2, ''Cecile'', ''Miranda'', ''Female'', ''cecilemiranda@gmail.com'', TO_DATE(''22/09/2020'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Pilots (pilot_id, airline_id, flight_id, pil_first_name, pil_last_name, gender, email_address, hire_date) VALUES (3, 3, 3, ''Jake'', ''Parker'', ''Male'', ''jakeparker@gmail.com'', TO_DATE(''31/03/2019'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Pilots (pilot_id, airline_id, flight_id, pil_first_name, pil_last_name, gender, email_address, hire_date) VALUES (4, 4, 4, ''Wilbert'', ''Bowman'', ''Male'', ''wilbertbowman@gmail.com'', TO_DATE(''18/07/2010'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Pilots (pilot_id, airline_id, flight_id, pil_first_name, pil_last_name, gender, email_address, hire_date) VALUES (5, 5, 5, ''Margie'', ''Baxter'', ''Female'', ''margiebaxter@yahoo.com'', TO_DATE(''08/09/2023'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Pilots (pilot_id, airline_id, flight_id, pil_first_name, pil_last_name, gender, email_address, hire_date) VALUES (6, 6, 6, ''Bertie'', ''Shea'', ''Female'', ''bertieshea@yahoo.com'', TO_DATE(''23/01/2017'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Pilots (pilot_id, airline_id, flight_id, pil_first_name, pil_last_name, gender, email_address, hire_date) VALUES (7, 7, 7, ''Rodrick'', ''Delago'', ''Male'', ''rodrickdelago@gmail.com'', TO_DATE(''26/05/2020'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Pilots (pilot_id, airline_id, flight_id, pil_first_name, pil_last_name, gender, email_address, hire_date) VALUES (8, 8, 8, ''Garfield'', ''Costa'', ''Male'', ''garfieldcosta@gmail.com'', TO_DATE(''06/05/2014'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Pilots (pilot_id, airline_id, flight_id, pil_first_name, pil_last_name, gender, email_address, hire_date) VALUES (9, 9, 9, ''Lisa'', ''Bartlett'', ''Female'', ''lisabartlett@yahoo.com'', TO_DATE(''14/11/2022'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Pilots (pilot_id, airline_id, flight_id, pil_first_name, pil_last_name, gender, email_address, hire_date) VALUES (10, 10, 10, ''Margey'', ''Casey'', ''Female'', ''margeycasey@gmail.com'', TO_DATE(''01/06/2020'', ''DD-MM-YYYY''))';
 
-    EXECUTE IMMEDIATE 'INSERT INTO Flight_Attendant (attendant_id, att_first_name, att_last_name, gender, hire_date) VALUES (1, ''Nicky'', ''Mcdowell'', ''Male'', ''05/12/2019'')';
-    EXECUTE IMMEDIATE 'INSERT INTO Flight_Attendant (attendant_id, att_first_name, att_last_name, gender, hire_date) VALUES (2, ''Draghici'', ''Alexandru-Gabriel'', ''Male'', ''12/06/2022'')';
-    EXECUTE IMMEDIATE 'INSERT INTO Flight_Attendant (attendant_id, att_first_name, att_last_name, gender, hire_date) VALUES (3, ''Jeremy'', ''Strong'', ''Male'', ''09/22/2020'')';
-    EXECUTE IMMEDIATE 'INSERT INTO Flight_Attendant (attendant_id, att_first_name, att_last_name, gender, hire_date) VALUES (4, ''Katina'', ''Coleman'', ''Female'', ''11/01/2023'')';
-    EXECUTE IMMEDIATE 'INSERT INTO Flight_Attendant (attendant_id, att_first_name, att_last_name, gender, hire_date) VALUES (5, ''Keith'', ''Webb'', ''Female'', ''04/27/2019'')';
-    EXECUTE IMMEDIATE 'INSERT INTO Flight_Attendant (attendant_id, att_first_name, att_last_name, gender, hire_date) VALUES (6, ''Valentina'', ''Rother'', ''Female'', ''03/05/2023'')';
-    EXECUTE IMMEDIATE 'INSERT INTO Flight_Attendant (attendant_id, att_first_name, att_last_name, gender, hire_date) VALUES (7, ''Monica'', ''Slabu'', ''Female'', ''05/09/2016'')';
-    EXECUTE IMMEDIATE 'INSERT INTO Flight_Attendant (attendant_id, att_first_name, att_last_name, gender, hire_date) VALUES (8, ''Alberto'', ''Dima'', ''Male'', ''10/17/2019'')';
-    EXECUTE IMMEDIATE 'INSERT INTO Flight_Attendant (attendant_id, att_first_name, att_last_name, gender, hire_date) VALUES (9, ''Sabina'', ''Foster'', ''Female'', ''11/10/2018'')';
-    EXECUTE IMMEDIATE 'INSERT INTO Flight_Attendant (attendant_id, att_first_name, att_last_name, gender, hire_date) VALUES (10, ''Carlos'', ''Oliveira'', ''Male'', ''04/10/2021'')';
+    EXECUTE IMMEDIATE 'INSERT INTO Flight_Attendant (attendant_id, att_first_name, att_last_name, gender, hire_date) VALUES (1, ''Nicky'', ''Mcdowell'', ''Male'', TO_DATE(''12/05/2019'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Flight_Attendant (attendant_id, att_first_name, att_last_name, gender, hire_date) VALUES (2, ''Draghici'', ''Alexandru-Gabriel'', ''Male'', TO_DATE(''12/06/2022'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Flight_Attendant (attendant_id, att_first_name, att_last_name, gender, hire_date) VALUES (3, ''Jeremy'', ''Strong'', ''Male'', TO_DATE(''22/09/2020'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Flight_Attendant (attendant_id, att_first_name, att_last_name, gender, hire_date) VALUES (4, ''Katina'', ''Coleman'', ''Female'', TO_DATE(''11/01/2023'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Flight_Attendant (attendant_id, att_first_name, att_last_name, gender, hire_date) VALUES (5, ''Keith'', ''Webb'', ''Female'', TO_DATE(''27/04/2019'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Flight_Attendant (attendant_id, att_first_name, att_last_name, gender, hire_date) VALUES (6, ''Valentina'', ''Rother'', ''Female'', TO_DATE(''03/05/2023'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Flight_Attendant (attendant_id, att_first_name, att_last_name, gender, hire_date) VALUES (7, ''Monica'', ''Slabu'', ''Female'', TO_DATE(''05/09/2016'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Flight_Attendant (attendant_id, att_first_name, att_last_name, gender, hire_date) VALUES (8, ''Alberto'', ''Dima'', ''Male'', TO_DATE(''17/10/2019'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Flight_Attendant (attendant_id, att_first_name, att_last_name, gender, hire_date) VALUES (9, ''Sabina'', ''Foster'', ''Female'', TO_DATE(''11/10/2018'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Flight_Attendant (attendant_id, att_first_name, att_last_name, gender, hire_date) VALUES (10, ''Carlos'', ''Oliveira'', ''Male'', TO_DATE(''04/10/2021'', ''DD-MM-YYYY''))';
 
     EXECUTE IMMEDIATE 'INSERT INTO Passengers (passenger_id, flight_id, passport_no, pass_first_name, pass_last_name, gender) VALUES (1, 1, 12345, ''Bruno'', ''Wood'', ''Male'')';
     EXECUTE IMMEDIATE 'INSERT INTO Passengers (passenger_id, flight_id, passport_no, pass_first_name, pass_last_name, gender) VALUES (2, 2, 55134, ''Taylor'', ''Sims'', ''Female'')';
@@ -196,20 +196,21 @@ BEGIN
     EXECUTE IMMEDIATE 'INSERT INTO Passengers (passenger_id, flight_id, passport_no, pass_first_name, pass_last_name, gender) VALUES (24, 10, 00129, ''Chris'', ''Redfield'', ''Male'')';
     EXECUTE IMMEDIATE 'INSERT INTO Passengers (passenger_id, flight_id, passport_no, pass_first_name, pass_last_name, gender) VALUES (25, 10, 54452, ''Claire'', ''Redfield'', ''Female'')';
 
-    EXECUTE IMMEDIATE 'INSERT INTO Contracts (contract_id, airline_id, airport_id, contract_value, con_start_date, con_end_date) VALUES (1, 1, 1, 150000.50, ''03/15/2023'', ''03/15/2028'')'; 
-    EXECUTE IMMEDIATE 'INSERT INTO Contracts (contract_id, airline_id, airport_id, contract_value, con_start_date, con_end_date) VALUES (2, 2, 2, 180000.25, ''09/28/2022'', ''09/28/2027'')'; 
-    EXECUTE IMMEDIATE 'INSERT INTO Contracts (contract_id, airline_id, airport_id, contract_value, con_start_date, con_end_date) VALUES (3, 3, 3, 200000.20, ''12/06/2020'', ''12/06/2030'')'; 
-    EXECUTE IMMEDIATE 'INSERT INTO Contracts (contract_id, airline_id, airport_id, contract_value, con_start_date, con_end_date) VALUES (4, 4, 4, 100000.50, ''12/24/2017'', ''12/24/2024'')'; 
-    EXECUTE IMMEDIATE 'INSERT INTO Contracts (contract_id, airline_id, airport_id, contract_value, con_start_date, con_end_date) VALUES (5, 5, 5, 175000.75, ''12/18/2011'', ''12/18/2023'')'; 
-    EXECUTE IMMEDIATE 'INSERT INTO Contracts (contract_id, airline_id, airport_id, contract_value, con_start_date, con_end_date) VALUES (6, 6, 6, 210000.12, ''01/31/2015'', ''01/31/2025'')'; 
-    EXECUTE IMMEDIATE 'INSERT INTO Contracts (contract_id, airline_id, airport_id, contract_value, con_start_date, con_end_date) VALUES (7, 7, 7, 130000.30, ''07/19/2021'', ''07/19/2031'')'; 
-    EXECUTE IMMEDIATE 'INSERT INTO Contracts (contract_id, airline_id, airport_id, contract_value, con_start_date, con_end_date) VALUES (8, 8, 8, 162500.20, ''04/18/2024'', ''04/18/2029'')'; 
-    EXECUTE IMMEDIATE 'INSERT INTO Contracts (contract_id, airline_id, airport_id, contract_value, con_start_date, con_end_date) VALUES (9, 9, 9, 112000.12, ''07/08/2019'', ''07/08/2026'')'; 
-    EXECUTE IMMEDIATE 'INSERT INTO Contracts (contract_id, airline_id, airport_id, contract_value, con_start_date, con_end_date) VALUES (10, 10, 10, 212000.21, ''10/09/2010'', ''10/09/2025'')';
+    EXECUTE IMMEDIATE 'INSERT INTO Contracts (contract_id, airline_id, airport_id, contract_value, con_start_date, con_end_date) VALUES (1, 1, 1, 150000.50, TO_DATE(''15/03/2023'', ''DD-MM-YYYY''), TO_DATE(''15/03/2028'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Contracts (contract_id, airline_id, airport_id, contract_value, con_start_date, con_end_date) VALUES (2, 2, 2, 180000.25, TO_DATE(''28/09/2022'', ''DD-MM-YYYY''), TO_DATE(''28/09/2027'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Contracts (contract_id, airline_id, airport_id, contract_value, con_start_date, con_end_date) VALUES (3, 3, 3, 200000.20, TO_DATE(''12/06/2020'', ''DD-MM-YYYY''), TO_DATE(''12/06/2030'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Contracts (contract_id, airline_id, airport_id, contract_value, con_start_date, con_end_date) VALUES (4, 4, 4, 100000.50, TO_DATE(''24/12/2017'', ''DD-MM-YYYY''), TO_DATE(''24/12/2024'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Contracts (contract_id, airline_id, airport_id, contract_value, con_start_date, con_end_date) VALUES (5, 5, 5, 175000.75, TO_DATE(''18/12/2011'', ''DD-MM-YYYY''), TO_DATE(''18/12/2023'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Contracts (contract_id, airline_id, airport_id, contract_value, con_start_date, con_end_date) VALUES (6, 6, 6, 210000.12, TO_DATE(''31/01/2015'', ''DD-MM-YYYY''), TO_DATE(''31/01/2025'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Contracts (contract_id, airline_id, airport_id, contract_value, con_start_date, con_end_date) VALUES (7, 7, 7, 130000.30, TO_DATE(''19/07/2021'', ''DD-MM-YYYY''), TO_DATE(''19/07/2031'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Contracts (contract_id, airline_id, airport_id, contract_value, con_start_date, con_end_date) VALUES (8, 8, 8, 162500.20, TO_DATE(''18/04/2024'', ''DD-MM-YYYY''), TO_DATE(''18/04/2029'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Contracts (contract_id, airline_id, airport_id, contract_value, con_start_date, con_end_date) VALUES (9, 9, 9, 112000.12, TO_DATE(''07/08/2019'', ''DD-MM-YYYY''), TO_DATE(''07/08/2026'', ''DD-MM-YYYY''))';
+    EXECUTE IMMEDIATE 'INSERT INTO Contracts (contract_id, airline_id, airport_id, contract_value, con_start_date, con_end_date) VALUES (10, 10, 10, 212000.21, TO_DATE(''10/09/2010'', ''DD-MM-YYYY''), TO_DATE(''10/09/2025'', ''DD-MM-YYYY''))';
+
 END;
 /
 
--- B. Alternative and repetitive structures (IF, CASE, FOR, LOOP, WHILE)
+-- B. Alternative and repetitive structures 
 
 -- IF 
 -- Count the passengers on the flight
@@ -307,6 +308,7 @@ END;
 
 -- WHILE LOOP
 -- Display the flights with the number of passengers on the flight is greater than the avg number on all flights
+
 DECLARE
     V_PASS_AVG NUMBER;
     V_FLIGHT_ID FLIGHTS.FLIGHT_ID%TYPE;
@@ -326,7 +328,7 @@ BEGIN
 END;
 /
 
--- C. DATA COLLECTIONS (INDEX BY TABLE, NESTED TABLE, VARRAY)
+-- C. DATA COLLECTIONS 
 
 -- INDEX BY TABLE 
 -- Display the airlines that go in Europe with index table
@@ -402,7 +404,6 @@ EXCEPTION
 END;
 /
 
-
 -- Display the flight attendant and hire date and display error if cursor is already open
 
 DECLARE
@@ -432,7 +433,7 @@ DECLARE
     V_LAST_NAME PILOTS.PIL_LAST_NAME%TYPE;
     V_FLIGHT FLIGHTS.FLIGHT_NUMBER%TYPE;
 BEGIN
-    SELECT P.PILOT_ID, P.PIL_FIRST_NAME, P.PIL_LAST_NAME, F.FLIGHT_NAME INTO V_PILOT_ID, V_FIRST_NAME, V_LAST_NAME, V_FLIGHT 
+    SELECT P.PILOT_ID, P.PIL_FIRST_NAME, P.PIL_LAST_NAME, F.FLIGHT_NUMBER INTO V_PILOT_ID, V_FIRST_NAME, V_LAST_NAME, V_FLIGHT 
     FROM PILOTS P JOIN FLIGHTS F ON P.FLIGHT_ID = F.FLIGHT_ID 
     WHERE P.PILOT_ID = 1;
     DBMS_OUTPUT.PUT_LINE('Pilot ' || V_FIRST_NAME || ' ' || V_LAST_NAME || 'with the ID: ' || V_PILOT_ID || ' is on flight - ' || V_FLIGHT);
@@ -441,7 +442,6 @@ EXCEPTION
         DBMS_OUTPUT.PUT_LINE('Too many rows for pilot 1');
 END;
 /
-
 
 -- EXPLICIT 
 -- Add new contract, if it exceeds the value of 2500 EUR add exception 
@@ -489,11 +489,11 @@ END;
 -- Display the airplane with the id 20 if it does not exist throw exception 
 
 DECLARE
-    V_AIRPORT_ID AIRPORTS.AIRPORT_ID%TYPE := 20;
-    V_AIRPORT_NAME AIRPORTS.AIRPORT_NAME%TYPE; 
+    V_AIRPORT_ID AIRPORT.AIRPORT_ID%TYPE := 20;
+    V_AIRPORT_NAME AIRPORT.AIRPORT_NAME%TYPE; 
 BEGIN
-    SELECT AIRPORT_NAME INTO V_AIRPORT_NAME FROM AIRPORTS WHERE AIRPORT_ID = V_AIRPORT_ID;
-    DBMS_OUTPUT.PUT_LINE('Airport name is: ' || AIRPORT_NAME);
+    SELECT AIRPORT_NAME INTO V_AIRPORT_NAME FROM AIRPORT WHERE AIRPORT_ID = V_AIRPORT_ID;
+    DBMS_OUTPUT.PUT_LINE('Airport name is: ' || V_AIRPORT_NAME);
 EXCEPTION
     WHEN NO_DATA_FOUND THEN
         DBMS_OUTPUT.PUT_LINE('Airport does not exist');
@@ -511,7 +511,6 @@ BEGIN
     END IF;
 END;
 /
-   
 
 -- EXPLICIT CURSOR 
 -- Cursor to update production year with FOR UPDATE 
@@ -544,4 +543,68 @@ END;
 
 -- F. Functions, procedures, inclusion in packages 
 
--- G. Triggers at statement and row level .
+-- 3 Functions 
+-- 1. Return the number of passengers on flight
+
+CREATE OR REPLACE FUNCTION TOTAL_PASS (P_FLIGHT_ID IN FLIGHTS.FLIGHT_ID%TYPE) RETURN NUMBER IS 
+V_TOTAL_PASSENGERS NUMBER;
+BEGIN
+    SELECT COUNT(*) INTO V_TOTAL_PASSENGERS FROM PASSENGERS WHERE FLIGHT_ID = P_FLIGHT_ID;
+    RETURN V_TOTAL_PASSENGERS;
+END;
+/
+
+SELECT TOTAL_PASS(1) /*AS TOTAL_PASSENGERS*/ FROM DUAL;
+
+-- 2. Return the average value of contracts
+
+CREATE OR REPLACE FUNCTION GET_AVG RETURN NUMBER IS 
+V_AVG NUMBER;
+BEGIN
+    SELECT AVG(CONTRACT_VALUE) INTO V_AVG FROM CONTRACTS;
+    RETURN V_AVG;
+END;
+/
+
+SELECT GET_AVG FROM DUAL;
+-- SELECT GET_AVG() AS AVG_CONTRACT_VALUE FROM DUAL;
+
+-- 3. Display the number of female passengers on flight
+
+CREATE OR REPLACE FUNCTION FEM_PASS RETURN NUMBER IS 
+V_FEMALES NUMBER;
+BEGIN 
+    SELECT COUNT(*) INTO V_FEMALES FROM PASSENGERS WHERE GENDER = 'Female';
+    RETURN V_FEMALES;
+END;
+/
+
+SELECT FEM_PASS FROM DUAL;
+
+-- 3 Procedures
+-- 1. Display passengers list on flight id 1 
+
+CREATE OR REPLACE PROCEDURE PASSENGER_LIST (P_FLIGHT_ID IN PASSENGERS.FLIGHT_ID%TYPE) AS 
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('These are the passengers of flight ' || P_FLIGHT_ID);
+    FOR PASS_LIST IN (SELECT PASS_FIRST_NAME, PASS_LAST_NAME, PASSPORT_NO FROM PASSENGERS WHERE FLIGHT_ID = PASSENGER_LIST.P_FLIGHT_ID) LOOP
+        DBMS_OUTPUT.PUT_LINE('Passenger - ' || PASS_LIST.PASS_FIRST_NAME || ' ' || PASS_LIST.PASS_LAST_NAME || ' - ' || PASS_LIST.PASSPORT_NO);
+    END LOOP;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN 
+        DBMS_OUTPUT.PUT_LINE('There are no passengers on this flight');
+END;
+/
+
+BEGIN
+    PASSENGER_LIST(1);
+END;
+/
+    
+-- 2.
+
+-- 3.
+
+-- Package including different functions and procedures
+
+-- G. Triggers at statement and row level
